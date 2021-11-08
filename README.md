@@ -7,7 +7,7 @@
 <h3 align="center">✍️ Making some projects using JavaScript, PHP,...</h3>
 <h3 align="center">:open_file_folder: Node.js, React.js, TensorFlow and Laravel </h3>
 
-**Facebook**: <a href="https://www.facebook.com/zeroryo25/">Huy Hùng</a>
+
 
 #### Languages and Frameworks I know and Study
 
@@ -22,7 +22,7 @@
 
 #### My github stats
 <img width="450" src="https://github-readme-stats.vercel.app/api?username=Zeroryo&show_icons=true&theme=tokyonight" />
-
+Facebook: <a href="https://www.facebook.com/zeroryo25/">Huy Hùng</a>
 
 # Learn_English_Today
 Ứng dụng học tiếng anh  trên Android được tạo bằng Flutter sử dụng các API Android như english_words,shared_preferences,... 
