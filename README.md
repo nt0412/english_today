@@ -32,5 +32,10 @@ Facebook: <a href="https://www.facebook.com/zeroryo25/">Huy Hùng</a>
 ## Screenshots
 | ![Water summary](screenshots/info.jpg) | ![Progress](screenshots/intro1.jpg) | ![Settings](screenshots/list.jpg) | ![Alarm](screenshots/navbar.jpg) |
 |----------|:-------------:|:-------------:|:-------------:|
-| ![Water summary](screenshots/vote.jpg) | ![Progress](screenshots/dieuchinh.jpg) | ![Settings](screenshots/itro.jpg) | ![Alarm](screenshots/author.jpg) |
+| ![Water summary](screenshots/vote.jpg) | ![Progress](screenshots/dieuchinh.jpg) | ![Settings](screenshots/intro.jpg) | ![Alarm](screenshots/author.jpg) |
 |----------|:-------------:|:-------------:|:-------------:|
+| ![Water summary](screenshots/info.jpg) | ![Progress](screenshots/intro1.jpg) | ![Settings](screenshots/list.jpg) | ![Alarm](screenshots/navbar.jpg) |
+|----------|:-------------:|:-------------:|:-------------:|
+| ![Water summary](screenshots/vote.jpg) | ![Progress](screenshots/dieuchinh.jpg) | ![Settings](screenshots/intro.jpg) | ![Alarm](screenshots/author.jpg) |
+|----------|:-------------:|:-------------:|:-------------:|
+
