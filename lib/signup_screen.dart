@@ -1,10 +1,10 @@
 import 'dart:math';
-
+import 'package:Learn_English_Today/introduction_animation/components/home_page.dart';
 import 'package:Learn_English_Today/widgets/customClipper.dart';
 import 'package:Learn_English_Today/home_screen.dart';
 import 'package:Learn_English_Today/login_screen.dart';
 import 'package:flutter/material.dart';
-
+import 'package:Learn_English_Today/introduction_animation/components/home_page.dart';
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
 
@@ -153,7 +153,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       onTap: () => Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => HomeScreen(),
+                          builder: (context) => HomePage(),
                         ),
                       ),
                       child: Container(

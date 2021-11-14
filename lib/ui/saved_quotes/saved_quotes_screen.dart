@@ -26,7 +26,7 @@ class _SavedQuotesScreenState extends State<SavedQuotesScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
+         backgroundColor: Color(0xffF7EBE1),
         appBar: AppBar(
           title: const Text(
             UiConst.savedQuoteScreenTitle,
@@ -37,7 +37,7 @@ class _SavedQuotesScreenState extends State<SavedQuotesScreen> {
           ],
           elevation: 0,
           iconTheme: IconThemeData(color: Theme.of(context).primaryColor),
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.redAccent,
         ),
         body: BlocBuilder<SavedQuotesBloc, SavedQuoteState>(
           builder: (BuildContext context, state) {
@@ -51,10 +51,12 @@ class _SavedQuotesScreenState extends State<SavedQuotesScreen> {
                   return ListTile(
                     title: Text(
                       state.savedQuotes![index].quote,
-                      style: Theme.of(context).primaryTextTheme.bodyText2,
+                      style: TextStyle(fontStyle: FontStyle.italic,
+                      color: Colors.black87),
+                      
                     ),
                     subtitle: Text("- ${state.savedQuotes![index].author}",
-                        style: Theme.of(context).primaryTextTheme.subtitle2),
+                        style: TextStyle(color: Colors.redAccent)),
                     trailing: Wrap(
                       spacing: 12, // space between two icons
                       children: <Widget>[

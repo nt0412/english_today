@@ -21,6 +21,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:Learn_English_Today/pages/profile_page.dart';
 import 'package:Learn_English_Today/invite_friend_screen.dart';
+import 'package:Learn_English_Today/quoctes_page.dart';
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -140,7 +141,7 @@ class _HomePageState extends State<HomePage> {
                       _currentIndex = index;
                     });
                   },
-                  itemCount: words.length > 5 ? 5 : words.length,
+                  itemCount: words.length > 98 ?99 : words.length,
                   itemBuilder: (context, index) {
                     String firstLetter =
                         words[index].noun != null ? words[index].noun! : '';
@@ -151,7 +152,7 @@ class _HomePageState extends State<HomePage> {
                     leftLetter = leftLetter.substring(1, leftLetter.length);
 
                     String quoteDefault =
-                        "Think of all the beauty still left around you and be happy";
+                        "Learning English is to improve yourself, improve your own life. It is a completely legitimate motivation of your own to bring your dreams higher and farther or you yourself are firmly grasped in own future hand.";
 
                     String qoute = words[index].quote != null
                         ? words[index].quote!
@@ -171,7 +172,7 @@ class _HomePageState extends State<HomePage> {
                           ],
                           borderRadius: BorderRadius.all(Radius.circular(24)),
                         ),
-                        child: index >= 5
+                        child: index >= 99
                             ? InkWell(
                                 onTap: () {
                                   print('show more...');
@@ -376,10 +377,10 @@ class _HomePageState extends State<HomePage> {
               Padding(
                  padding: const EdgeInsets.symmetric(vertical: 24),
                 child: AppButton(
-                    label: 'dashboard',
+                    label: 'Quoctes',
                     onTap: () {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => HomeScreen()));
+                          MaterialPageRoute(builder: (_) => Quoctespage()));
                     }),
               ),
            

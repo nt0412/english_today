@@ -1,3 +1,4 @@
+import 'package:Learn_English_Today/ui/home/widgets/share_button1.dart';
 import 'package:flutter/material.dart';
 import 'package:Learn_English_Today/ui/home/widgets/quote_button.dart';
 import 'package:Learn_English_Today/ui/home/widgets/share_button.dart';
@@ -21,6 +22,7 @@ class _ActionButtonRowState extends State<ActionButtonRow> {
         FavoriteButton(),
         QuoteButton(),
         ShareButton(),
+        ShareButton1(),
       ],
     );
   }

@@ -1,167 +1,93 @@
+import 'dart:io';
 import 'package:Learn_English_Today/app_theme.dart';
-import 'package:Learn_English_Today/values/app_assets.dart';
-import 'package:Learn_English_Today/values/app_styles.dart';
-import 'package:Learn_English_Today/values/share_keys.dart';
+import 'package:Learn_English_Today/packages/quote/quote.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/services.dart';
+import 'introduction_animation/introduction_animation_screen.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:Learn_English_Today/bloc/home_screen/favorite_button/favorite_bloc.dart';
+import 'package:Learn_English_Today/bloc/home_screen/home_bloc.dart';
+import 'package:Learn_English_Today/bloc/home_screen/load_quote_button/quote_button_bloc.dart';
+import 'package:Learn_English_Today/bloc/network_connectivity/network_connectivity_bloc.dart';
+import 'package:Learn_English_Today/bloc/simple_bloc_observer.dart';
+import 'package:Learn_English_Today/data/repository/quote_repository.dart';
+import 'package:Learn_English_Today/ui/home/home.dart';
+import 'package:Learn_English_Today/ui/saved_quotes/saved_quotes_screen.dart';
+import 'package:Learn_English_Today/ui/splash/splash_screen.dart';
+import 'package:Learn_English_Today/utils/constants/theme_const.dart';
+import 'package:Learn_English_Today/utils/constants/ui_const.dart';
 
-class quoctes_page extends StatefulWidget {
+import 'bloc/initialization/initialization_bloc.dart';
+import 'bloc/saved_quotes_screen/saved_quote_bloc.dart';
+
+
+class Quoctespage extends StatefulWidget {
+  const Quoctespage({Key? key}) : super(key: key);
+
   @override
-  _quoctes_page createState() => _quoctes_page();
+  _QuoctespageState createState() => _QuoctespageState();
 }
 
-class _quoctes_page extends State<quoctes_page> {
-   double sliderValue = 5;
-  late SharedPreferences prefs;
-  @override
-  void initState() {
-    super.initState();
-  }
-
+class _QuoctespageState extends State<Quoctespage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
-      child: SafeArea(
-        top: false,
-        child: Scaffold(
-          backgroundColor: Color(0xffF7EBE1),
-            appBar: AppBar(
-        backgroundColor: Colors.redAccent,
-        elevation: 0,
-        title: Text(
-          'Feedback',
-          style:
-              AppStyles.h3.copyWith(color: Color(0xffF7EBE1), fontSize: 36),
-        ),
-        leading: InkWell(
-          onTap: () async {
-            SharedPreferences prefs = await SharedPreferences.getInstance();
-            await prefs.setInt(ShareKeys.counter, sliderValue.toInt());
-            Navigator.pop(context);
-          },
-          child: Image.asset(AppAssets.leftArrow),
-        ),
-      ),
-          body: SingleChildScrollView(
-            child: SizedBox(
-              height: MediaQuery.of(context).size.height,
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.only(
-                        top: MediaQuery.of(context).padding.top,
-                        left: 16,
-                        right: 16),
-                    child: Image.asset('assets/images/feedbackImage.png'),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.only(top: 8),
-                    child: Text(
-                      'Your FeedBack',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.only(top: 16),
-                    child: const Text(
-                      'Give your best time for this moment.',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                  _buildComposer(),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 16),
-                    child: Center(
-                      child: Container(
-                        width: 120,
-                        height: 40,
-                        decoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(4.0)),
-                          boxShadow: <BoxShadow>[
-                            BoxShadow(
-                                color: Colors.grey.withOpacity(0.6),
-                                offset: const Offset(4, 4),
-                                blurRadius: 8.0),
-                          ],
-                        ),
-                        child: Material(
-                          color: Colors.transparent,
-                          child: InkWell(
-                            onTap: () {
-                              FocusScope.of(context).requestFocus(FocusNode());
-                            },
-                            child: Center(
-                              child: Padding(
-                                padding: const EdgeInsets.all(4.0),
-                                child: Text(
-                                  'Send',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
+    final QuoteRepository quoteRepository = QuoteRepository();
 
-  Widget _buildComposer() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 16, left: 32, right: 32),
-      child: Container(
-        decoration: BoxDecoration(
-          color: AppTheme.white,
-          borderRadius: BorderRadius.circular(8),
-          boxShadow: <BoxShadow>[
-            BoxShadow(
-                color: Colors.grey.withOpacity(0.8),
-                offset: const Offset(4, 4),
-                blurRadius: 8),
-          ],
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(25),
-          child: Container(
-            padding: const EdgeInsets.all(4.0),
-            constraints: const BoxConstraints(minHeight: 80, maxHeight: 160),
-            color: AppTheme.white,
-            child: SingleChildScrollView(
-              padding:
-                  const EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 0),
-              child: TextField(
-                maxLines: null,
-                onChanged: (String txt) {},
-                style: TextStyle(
-                  fontFamily: AppTheme.fontName,
-                  fontSize: 16,
-                  color: AppTheme.dark_grey,
+    return RepositoryProvider(
+      create: (context) => quoteRepository,
+      child: MultiRepositoryProvider(
+        providers: [
+          RepositoryProvider<QuoteRepository>(
+              create: (context) => quoteRepository),
+        ],
+        child: MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              lazy: false,
+              create: (context) => InitializationBloc()
+                ..add(
+                  InitializeApp(),
                 ),
-                cursorColor: Colors.blue,
-                decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: 'Enter your feedback...'),
+            ),
+            BlocProvider(
+              lazy: false,
+              create: (context) => NetworkConnectivityBloc(),
+            ),
+            BlocProvider(
+              create: (context) => HomeBloc(
+                quoteRepository:
+                    RepositoryProvider.of<QuoteRepository>(context),
               ),
             ),
+            BlocProvider(
+              lazy: false,
+              create: (context) => QuoteButtonBloc(
+                homeBloc: BlocProvider.of<HomeBloc>(context),
+              ),
+            ),
+            BlocProvider(
+              create: (context) => FavoriteBloc(
+                  quoteRepository:
+                      RepositoryProvider.of<QuoteRepository>(context)),
+            ),
+            BlocProvider(
+              create: (context) => SavedQuotesBloc(
+                quoteRepository:
+                    RepositoryProvider.of<QuoteRepository>(context),
+              ),
+            ),
+          ],
+          child: MaterialApp(
+            title: UiConst.appName,
+           
+            initialRoute: UiConst.splashScreenRoute,
+            routes: {
+              UiConst.splashScreenRoute: (context) => const SplashScreen(),
+              UiConst.homeScreenRoute: (context) => const HomeScreen(),
+              UiConst.savedQuotesScreenRoute: (context) =>
+                  const SavedQuotesScreen(),
+            },
           ),
         ),
       ),
