@@ -30,12 +30,12 @@ Facebook: <a href="https://www.facebook.com/zeroryo25/">Huy Hùng</a>
 - Flutter UI: Giao diện người dùng và hình ảnh động nâng cao.
 - english_words + quoctes : Gồm nhiều từ vựng với cách hiện thị sống động, có thể note lại từ vựng và tăng số từ
 ## Screenshots
-| ![Water summary](screenshots/info.jpg) | ![Progress](screenshots/intro1.jpg) | ![Settings](screenshots/list.jpg) | ![Alarm](screenshots/navbar.jpg) |
+| ![Water summary](screenshots/intro.jpg) | ![Progress](screenshots/intro1.jpg) | ![Settings](screenshots/1.jpg) | ![Alarm](screenshots/2.jpg) |
 |----------|:-------------:|:-------------:|:-------------:|
-| ![Water summary](screenshots/vote.jpg) | ![Progress](screenshots/dieuchinh.jpg) | ![Settings](screenshots/intro.jpg) | ![Alarm](screenshots/author.jpg) |
+| ![Water summary](screenshots/3.jpg) | ![Progress](screenshots/info.jpg) | ![Settings](screenshots/list.jpg) | ![Alarm](screenshots/navbar.jpg) |
 |----------|:-------------:|:-------------:|:-------------:|
-| ![Water summary](screenshots/info.jpg) | ![Progress](screenshots/intro1.jpg) | ![Settings](screenshots/list.jpg) | ![Alarm](screenshots/navbar.jpg) |
+| ![Water summary](screenshots/vote.jpg) | ![Progress](screenshots/dieuchinh.jpg) | ![Settings](screenshots/pr.jpg) | ![Alarm](screenshots/feedback.jpg) |
 |----------|:-------------:|:-------------:|:-------------:|
-| ![Water summary](screenshots/vote.jpg) | ![Progress](screenshots/dieuchinh.jpg) | ![Settings](screenshots/intro.jpg) | ![Alarm](screenshots/author.jpg) |
+| ![Water summary](screenshots/author.jpg)  | ![Progress](screenshots/form.jpg) | ![Settings](screenshots/login.jpg) | ![Alarm](screenshots/login1.jpg) |
 |----------|:-------------:|:-------------:|:-------------:|
 
