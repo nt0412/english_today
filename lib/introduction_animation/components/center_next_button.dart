@@ -1,6 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:Learn_English_Today/introduction_animation/components/home_page.dart';
+import 'package:Learn_English_Today/welcome_screen.dart';
 
 class CenterNextButton extends StatelessWidget {
   final AnimationController animationController;
@@ -106,7 +107,7 @@ class CenterNextButton extends StatelessWidget {
                                   Navigator.pushAndRemoveUntil(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (_) => HomePage()),
+                                          builder: (_) => WelcomeScreen()),
                                       (route) => false);
                                 },
                                 child: Row(

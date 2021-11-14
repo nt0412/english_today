@@ -5,8 +5,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'introduction_animation/introduction_animation_screen.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:Learn_English_Today/bloc/home_screen/favorite_button/favorite_bloc.dart';
+import 'package:Learn_English_Today/bloc/home_screen/home_bloc.dart';
+import 'package:Learn_English_Today/bloc/home_screen/load_quote_button/quote_button_bloc.dart';
+import 'package:Learn_English_Today/bloc/network_connectivity/network_connectivity_bloc.dart';
+import 'package:Learn_English_Today/bloc/simple_bloc_observer.dart';
+import 'package:Learn_English_Today/data/repository/quote_repository.dart';
+import 'package:Learn_English_Today/ui/home/home.dart';
+import 'package:Learn_English_Today/ui/saved_quotes/saved_quotes_screen.dart';
+import 'package:Learn_English_Today/ui/splash/splash_screen.dart';
+import 'package:Learn_English_Today/utils/constants/theme_const.dart';
+import 'package:Learn_English_Today/utils/constants/ui_const.dart';
 
+import 'bloc/initialization/initialization_bloc.dart';
+import 'bloc/saved_quotes_screen/saved_quote_bloc.dart';
 void main() async {
+   WidgetsFlutterBinding.ensureInitialized();
+
+  //Initialize Bloc Observer
+  Bloc.observer = SimpleBlocObserver();
+
   WidgetsFlutterBinding.ensureInitialized();
   await Quotes().getAll();
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
@@ -32,7 +51,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        textTheme: AppTheme.textTheme,
         platform: TargetPlatform.iOS,
       ),
       home: IntroductionAnimationScreen(),

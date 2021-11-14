@@ -27,6 +27,7 @@ dependencies:
 
     # The following adds the Cupertino Icons font to your application.
     # Use with the CupertinoIcons class for iOS style icons.
+    google_fonts: ^2.1.0
     cupertino_icons: ^1.0.2
     font_awesome_flutter: ^9.0.0
     flutter_rating_bar: ^4.0.0
@@ -36,10 +37,29 @@ dependencies:
     shared_preferences: ^2.0.6
     auto_size_text: ^3.0.0-nullsafety.0
     like_button: ^2.0.2
+    # BLoC
+    bloc: ^7.2.1
+    flutter_bloc: ^7.3.1
+    # Network
+    dio: ^4.0.1
+    #Database
+    hive: ^2.0.4
+    hive_flutter: ^1.1.0
+     #Utils
+    equatable: ^2.0.3
+    share_plus: ^3.0.4
+    shimmer_animation: ^2.1.0
+    connectivity_plus: ^2.0.2
+
 
 dev_dependencies:
-    flutter_test:
-        sdk: flutter
+  flutter_test:
+    sdk: flutter
+  hive_generator: ^1.1.1
+  build_runner: ^2.1.4
+  flutter_lints: ^1.0.0
+
+       
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

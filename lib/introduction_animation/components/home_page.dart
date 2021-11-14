@@ -8,6 +8,7 @@ import 'package:Learn_English_Today/packages/quote/qoute_model.dart';
 import 'package:Learn_English_Today/packages/quote/quote.dart';
 import 'package:Learn_English_Today/pages/all_page.dart';
 import 'package:Learn_English_Today/pages/favorites_page.dart';
+import 'package:Learn_English_Today/home_screen.dart';
 import 'package:Learn_English_Today/pages/control_page.dart';
 import 'package:Learn_English_Today/values/app_assets.dart';
 import 'package:Learn_English_Today/values/app_colors.dart';
@@ -126,7 +127,7 @@ class _HomePageState extends State<HomePage> {
                 child: Text(
                   '"$quote"',
                   style: AppStyles.h5.copyWith(
-                    fontSize: 20,
+                    fontSize: 15,
                     color: AppColors.textColor,
                   ),
                 )),
@@ -371,6 +372,17 @@ class _HomePageState extends State<HomePage> {
                           MaterialPageRoute(builder: (_) => ProfilePage()));
                     }),
               ),
+           
+              Padding(
+                 padding: const EdgeInsets.symmetric(vertical: 24),
+                child: AppButton(
+                    label: 'dashboard',
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => HomeScreen()));
+                    }),
+              ),
+           
             ],
           ),
         ),
