@@ -101,6 +101,7 @@ class WelcomeView extends StatelessWidget {
 
                 child: Container(
                   alignment: Alignment.centerLeft,
+                  margin: const EdgeInsets.only(left: 15),
                   child: Text(
                     'Welcome to',
                     style: AppStyles.h3.copyWith(

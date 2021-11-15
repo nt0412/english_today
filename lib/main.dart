@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:Learn_English_Today/app_theme.dart';
 import 'package:Learn_English_Today/packages/quote/quote.dart';
+import 'package:Learn_English_Today/quoctes_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'introduction_animation/introduction_animation_screen.dart';
@@ -20,8 +21,9 @@ import 'package:Learn_English_Today/utils/constants/ui_const.dart';
 
 import 'bloc/initialization/initialization_bloc.dart';
 import 'bloc/saved_quotes_screen/saved_quote_bloc.dart';
+
 void main() async {
-   WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
 
   //Initialize Bloc Observer
   Bloc.observer = SimpleBlocObserver();
@@ -31,7 +33,7 @@ void main() async {
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown
-  ]).then((_) => runApp(MyApp()));
+  ]).then((_) => runApp(Quoctespage()));
 }
 
 class MyApp extends StatelessWidget {

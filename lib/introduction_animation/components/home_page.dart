@@ -1,5 +1,3 @@
-
-
 import 'dart:math';
 import 'package:Learn_English_Today/feedback_screen.dart';
 import 'package:english_words/english_words.dart';
@@ -7,14 +5,11 @@ import 'package:Learn_English_Today/models/english_today.dart';
 import 'package:Learn_English_Today/packages/quote/qoute_model.dart';
 import 'package:Learn_English_Today/packages/quote/quote.dart';
 import 'package:Learn_English_Today/pages/all_page.dart';
-import 'package:Learn_English_Today/pages/favorites_page.dart';
-import 'package:Learn_English_Today/home_screen.dart';
 import 'package:Learn_English_Today/pages/control_page.dart';
 import 'package:Learn_English_Today/values/app_assets.dart';
 import 'package:Learn_English_Today/values/app_colors.dart';
 import 'package:Learn_English_Today/values/app_styles.dart';
 import 'package:Learn_English_Today/values/share_keys.dart';
-import 'package:Learn_English_Today/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:like_button/like_button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -22,6 +17,8 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:Learn_English_Today/pages/profile_page.dart';
 import 'package:Learn_English_Today/invite_friend_screen.dart';
 import 'package:Learn_English_Today/quoctes_page.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -99,22 +96,18 @@ class _HomePageState extends State<HomePage> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       key: _scaffoldKey,
-      backgroundColor: Color(0xffF7EBE1),
+      backgroundColor: const Color(0xffF7EBE1),
       appBar: AppBar(
         backgroundColor: Colors.redAccent,
         elevation: 0,
-        title: Text(
-          'English today',
-          style:
-              AppStyles.h3.copyWith(color: AppColors.textColor, fontSize: 36)),
-        
+        title: Text('English today',
+            style: AppStyles.h3
+                .copyWith(color: AppColors.textColor, fontSize: 36)),
         leading: InkWell(
           onTap: () {
             _scaffoldKey.currentState?.openDrawer();
           },
-          
           child: Image.asset(AppAssets.menu),
-          
         ),
       ),
       body: Container(
@@ -141,7 +134,7 @@ class _HomePageState extends State<HomePage> {
                       _currentIndex = index;
                     });
                   },
-                  itemCount: words.length > 98 ?99 : words.length,
+                  itemCount: words.length > 98 ? 99 : words.length,
                   itemBuilder: (context, index) {
                     String firstLetter =
                         words[index].noun != null ? words[index].noun! : '';
@@ -162,7 +155,7 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.all(4.0),
                       child: Container(
                         padding: const EdgeInsets.all(16),
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Color(0xffFFCDD2),
                           boxShadow: [
                             BoxShadow(
@@ -187,7 +180,7 @@ class _HomePageState extends State<HomePage> {
                                 child: Center(
                                   child: Text('Show more...',
                                       style: AppStyles.h3.copyWith(shadows: [
-                                        BoxShadow(
+                                        const BoxShadow(
                                             color: Colors.black26,
                                             offset: Offset(3, 6),
                                             blurRadius: 6)
@@ -208,10 +201,10 @@ class _HomePageState extends State<HomePage> {
                                     isLiked: words[index].isFavorite,
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     size: 42,
-                                    circleColor: CircleColor(
+                                    circleColor: const CircleColor(
                                         start: Color(0xff00ddff),
                                         end: Color(0xff0099cc)),
-                                    bubblesColor: BubblesColor(
+                                    bubblesColor: const BubblesColor(
                                       dotPrimaryColor: Color(0xff33b5e5),
                                       dotSecondaryColor: Color(0xff0099cc),
                                     ),
@@ -237,7 +230,7 @@ class _HomePageState extends State<HomePage> {
                                               fontFamily: FontFamily.sen,
                                               fontSize: 40,
                                               fontWeight: FontWeight.bold,
-                                              shadows: [
+                                              shadows: const [
                                                 BoxShadow(
                                                     color: Colors.black38,
                                                     offset: Offset(3, 6),
@@ -250,7 +243,7 @@ class _HomePageState extends State<HomePage> {
                                                     fontFamily: FontFamily.sen,
                                                     fontSize: 27,
                                                     fontWeight: FontWeight.bold,
-                                                    shadows: [
+                                                    shadows: const [
                                                       BoxShadow(
                                                           color: Colors.black38,
                                                           offset: Offset(3, 6),
@@ -283,7 +276,7 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.symmetric(vertical: 24),
                   alignment: Alignment.center,
                   child: ListView.builder(
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       scrollDirection: Axis.horizontal,
                       itemCount: 99,
                       itemBuilder: (context, index) {
@@ -306,26 +299,52 @@ class _HomePageState extends State<HomePage> {
       ),
       drawer: Drawer(
         child: Container(
+          padding: const EdgeInsets.only(left: 16),
           color: Colors.red[100],
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 24, left: 16),
+                padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.095),
                 child: Text(
                   'Menu',
-                  style: AppStyles.h3.copyWith(color: AppColors.textColor),
+                  style: GoogleFonts.portLligatSans(
+                    fontSize: 50,
+                    fontWeight: FontWeight.w700,
+                    color: const Color(0xFFFFFFFF),
+                  ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 24),
-                child: AppButton(
-                    label: 'List words',
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => AllWordsPage(words: words)));
-                    }),
+                padding: const EdgeInsets.only(top: 25, left: 10, right: 10),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => AllWordsPage(words: words)));
+                  },
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.08,
+                    width: MediaQuery.of(context).size.width * 0.6,
+                    alignment: Alignment.center,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      color: Color(0xfff7eae1),
+                    ),
+                    child: Text(
+                      'List words',
+                      style: GoogleFonts.roboto(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w700,
+                        color: const Color(0xFFF7838F),
+                      ),
+                    ),
+                  ),
+                ),
               ),
+
               // Padding(
               //   padding: const EdgeInsets.symmetric(vertical: 24),
               //   child: AppButton(
@@ -335,55 +354,189 @@ class _HomePageState extends State<HomePage> {
               //             MaterialPageRoute(builder: (_) => ControlPage()));
               //       }),
               // ),
-              
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 24),
-                child: AppButton(
-                    label: 'Adjust word count',
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => ControlPage()));
-                    }),
+                padding: const EdgeInsets.only(top: 25, left: 10, right: 10),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => const ControlPage()));
+                  },
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.08,
+                    width: MediaQuery.of(context).size.width * 0.6,
+                    alignment: Alignment.center,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      color: Color(0xfff7eae1),
+                    ),
+                    child: Text(
+                      'Adjust word count',
+                      style: GoogleFonts.roboto(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w700,
+                        color: const Color(0xFFF7838F),
+                      ),
+                    ),
+                  ),
+                ),
               ),
-               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 24),
-                child: AppButton(
-                    label: 'Invite friends',
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => InviteFriend()));
-                    }),
-              ),
+
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(vertical: 24),
+              //   child: AppButton(
+              //       label: 'Adjust word count',
+              //       onTap: () {
+              //         Navigator.push(context,
+              //             MaterialPageRoute(builder: (_) => ControlPage()));
+              //       }),
+              // ),
+
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 24),
-                child: AppButton(
-                    label: 'Feedback',
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => FeedbackScreen()));
-                    }),
+                padding: const EdgeInsets.only(top: 25, left: 10, right: 10),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => InviteFriend()));
+                  },
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.08,
+                    width: MediaQuery.of(context).size.width * 0.6,
+                    alignment: Alignment.center,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      color: Color(0xfff7eae1),
+                    ),
+                    child: Text(
+                      'Invite friends',
+                      style: GoogleFonts.roboto(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w700,
+                        color: const Color(0xFFF7838F),
+                      ),
+                    ),
+                  ),
+                ),
               ),
-              
+
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(vertical: 24),
+              //   child: AppButton(
+              //       label: 'Invite friends',
+              //       onTap: () {
+              //         Navigator.push(context,
+              //             MaterialPageRoute(builder: (_) => InviteFriend()));
+              //       }),
+              // ),
               Padding(
-                 padding: const EdgeInsets.symmetric(vertical: 24),
-                child: AppButton(
-                    label: 'Author',
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => ProfilePage()));
-                    }),
+                padding: const EdgeInsets.only(top: 25, left: 10, right: 10),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => FeedbackScreen()));
+                  },
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.08,
+                    width: MediaQuery.of(context).size.width * 0.6,
+                    alignment: Alignment.center,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      color: Color(0xfff7eae1),
+                    ),
+                    child: Text(
+                      'Feedback',
+                      style: GoogleFonts.roboto(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w700,
+                        color: const Color(0xFFF7838F),
+                      ),
+                    ),
+                  ),
+                ),
               ),
-           
+
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(vertical: 24),
+              //   child: AppButton(
+              //       label: 'Feedback',
+              //       onTap: () {
+              //         Navigator.push(context,
+              //             MaterialPageRoute(builder: (_) => FeedbackScreen()));
+              //       }),
+              // ),
+
               Padding(
-                 padding: const EdgeInsets.symmetric(vertical: 24),
-                child: AppButton(
-                    label: 'Quoctes',
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => Quoctespage()));
-                    }),
+                padding: const EdgeInsets.only(top: 25, left: 10, right: 10),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => ProfilePage()));
+                  },
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.08,
+                    width: MediaQuery.of(context).size.width * 0.6,
+                    alignment: Alignment.center,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      color: Color(0xfff7eae1),
+                    ),
+                    child: Text(
+                      'Author',
+                      style: GoogleFonts.roboto(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w700,
+                        color: const Color(0xFFF7838F),
+                      ),
+                    ),
+                  ),
+                ),
               ),
-           
+
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(vertical: 24),
+              //   child: AppButton(
+              //       label: 'Author',
+              //       onTap: () {
+              //         Navigator.push(context,
+              //             MaterialPageRoute(builder: (_) => ProfilePage()));
+              //       }),
+              // ),
+
+              Padding(
+                padding: const EdgeInsets.only(top: 25, left: 10, right: 10),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => const Quoctespage()));
+                  },
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.08,
+                    width: MediaQuery.of(context).size.width * 0.6,
+                    alignment: Alignment.center,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      color: Color(0xfff7eae1),
+                    ),
+                    child: Text(
+                      'Quotes',
+                      style: GoogleFonts.roboto(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w700,
+                        color: const Color(0xFFF7838F),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(vertical: 24),
+              //   child: AppButton(
+              //       label: 'Quoctes',
+              //       onTap: () {
+              //         Navigator.push(context,
+              //             MaterialPageRoute(builder: (_) => Quoctespage()));
+              //       }),
+              // ),
             ],
           ),
         ),
@@ -393,14 +546,14 @@ class _HomePageState extends State<HomePage> {
 
   Widget buildIndicator(bool isActive, Size size) {
     return AnimatedContainer(
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
       height: 8,
       margin: const EdgeInsets.symmetric(horizontal: 12),
       width: isActive ? size.width * 1 / 5 : 24,
       decoration: BoxDecoration(
           color: isActive ? AppColors.lighBlue : AppColors.lightGrey,
-          borderRadius: BorderRadius.all(Radius.circular(12)),
-          boxShadow: [
+          borderRadius: const BorderRadius.all(Radius.circular(12)),
+          boxShadow: const [
             BoxShadow(
                 color: Colors.black38, offset: Offset(2, 3), blurRadius: 3)
           ]),

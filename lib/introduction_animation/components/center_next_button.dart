@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:Learn_English_Today/introduction_animation/components/home_page.dart';
 import 'package:Learn_English_Today/welcome_screen.dart';
 
+//trungtam dieu khien landing page
 class CenterNextButton extends StatelessWidget {
   final AnimationController animationController;
   final VoidCallback onNextClick;

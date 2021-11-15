@@ -1,10 +1,9 @@
 import 'dart:math';
 import 'package:Learn_English_Today/introduction_animation/components/home_page.dart';
 import 'package:Learn_English_Today/widgets/customClipper.dart';
-import 'package:Learn_English_Today/home_screen.dart';
 import 'package:Learn_English_Today/login_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:Learn_English_Today/introduction_animation/components/home_page.dart';
+
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
 
@@ -17,7 +16,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: Color(0xffF7EBE1),
+      backgroundColor: const Color(0xffF7EBE1),
       body: Container(
         height: height,
         child: Stack(
@@ -33,13 +32,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   child: Container(
                     height: MediaQuery.of(context).size.height * .5,
                     width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: [
-                          Color(0xffE6E6E6),
-                          Color(0xff14279B),
+                          Color(0xFFFAAFB8),
+                          Color(0xFFFF8A8A),
                         ],
                       ),
                     ),
@@ -48,7 +47,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               )),
             ),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 40),
+              padding: const EdgeInsets.symmetric(horizontal: 40),
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -57,35 +56,39 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     SizedBox(height: height * .2),
                     RichText(
                       textAlign: TextAlign.center,
-                      text: TextSpan(
+                      text: const TextSpan(
                         text: 'English',
                         style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.w700,
-                          color: Color(0xff14279B),
+                          color: Color(0xFFFAAFB8),
                         ),
                         children: [
                           TextSpan(
                             text: 'ToDay',
-                            style: TextStyle(color: Colors.black, fontSize: 30),
+                            style: TextStyle(
+                                color: Color(0xFFFF8A8A), fontSize: 30),
                           ),
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 50,
                     ),
                     Column(
                       children: <Widget>[
                         Container(
-                          margin: EdgeInsets.symmetric(vertical: 10),
+                          margin: const EdgeInsets.symmetric(vertical: 10),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
+                            children: const <Widget>[
                               Text(
                                 "Username",
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 15),
+                                  color: Color(0xFFFA6F6F),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
+                                ),
                               ),
                               SizedBox(
                                 height: 10,
@@ -100,14 +103,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.symmetric(vertical: 10),
+                          margin: const EdgeInsets.symmetric(vertical: 10),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
+                            children: const <Widget>[
                               Text(
                                 "Email address",
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 15),
+                                  color: Color(0xFFFA6F6F),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
+                                ),
                               ),
                               SizedBox(
                                 height: 10,
@@ -123,14 +129,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.symmetric(vertical: 10),
+                          margin: const EdgeInsets.symmetric(vertical: 10),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
+                            children: const <Widget>[
                               Text(
                                 "Password",
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 15),
+                                  color: Color(0xFFFA6F6F),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
+                                ),
                               ),
                               SizedBox(
                                 height: 10,
@@ -146,39 +155,40 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         )
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     GestureDetector(
                       onTap: () => Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => HomePage(),
+                          builder: (context) => const HomePage(),
                         ),
                       ),
                       child: Container(
                         width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.symmetric(vertical: 15),
+                        padding: const EdgeInsets.symmetric(vertical: 15),
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(5)),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(5)),
                           boxShadow: <BoxShadow>[
                             BoxShadow(
                                 color: Colors.grey.shade200,
-                                offset: Offset(2, 4),
+                                offset: const Offset(2, 4),
                                 blurRadius: 5,
                                 spreadRadius: 2)
                           ],
-                          gradient: LinearGradient(
-                            begin: Alignment.centerLeft,
-                            end: Alignment.centerRight,
+                          gradient: const LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
                             colors: [
-                              Color(0xff14279B),
-                              Color(0xff14279B),
+                              Color(0xFFFAAFB8),
+                              Color(0xFFFF8A8A),
                             ],
                           ),
                         ),
-                        child: Text(
+                        child: const Text(
                           'Register Now',
                           style: TextStyle(fontSize: 20, color: Colors.white),
                         ),
@@ -190,15 +200,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => LoginScreen()));
+                                builder: (context) => const LoginScreen()));
                       },
                       child: Container(
-                        margin: EdgeInsets.symmetric(vertical: 20),
-                        padding: EdgeInsets.all(15),
+                        margin: const EdgeInsets.symmetric(vertical: 20),
+                        padding: const EdgeInsets.all(15),
                         alignment: Alignment.bottomCenter,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
+                          children: const <Widget>[
                             Text(
                               'Already have an account ?',
                               style: TextStyle(
@@ -210,7 +220,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             Text(
                               'Login',
                               style: TextStyle(
-                                  color: Color(0xff14279B),
+                                  color: Color(0xFFFF8A8A),
                                   fontSize: 13,
                                   fontWeight: FontWeight.w600),
                             ),
@@ -230,15 +240,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Navigator.pop(context);
                 },
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Row(
                     children: <Widget>[
                       Container(
-                        padding: EdgeInsets.only(left: 0, top: 10, bottom: 10),
-                        child: Icon(Icons.keyboard_arrow_left,
+                        padding:
+                            const EdgeInsets.only(left: 0, top: 10, bottom: 10),
+                        child: const Icon(Icons.keyboard_arrow_left,
                             color: Colors.black),
                       ),
-                      Text('Back',
+                      const Text('Back',
                           style: TextStyle(
                               fontSize: 12, fontWeight: FontWeight.w500))
                     ],
